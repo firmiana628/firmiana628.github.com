@@ -1,0 +1,91 @@
+---
+layout: page
+title: "About"
+description: "写一段好代码，降低世界碳排量！"
+header-img: "img/common/about-bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh">
+    <blockquote>
+        写一段好代码，降低世界碳排量。
+    </blockquote>
+	<p>我叫戴伟来。</p>
+	<p>曾经是一个工科学生，主攻网络工程。</p>
+	<p>也担任过摇滚乐队队长，是一个吉他手、贝斯手。</p>
+	<p>现在成了一名高颜值iOS开发工程师，是团队负责人、技术狂热爱好者。</p>
+	<p>未来将会是。。。待续</p>
+</div>
+
+<!-- English Version -->
+<div class="en">
+    <blockquote>
+        Good code change the world.
+    </blockquote>
+	<p>This is David Day.</p>
+	<p>Majoring in Network Engineering during college education</p>
+	<p>I was leader of a rock band,being the guitar&bass player.</p>
+	<p>Now I'm a good-looking iOS developer,group leader and a zealous fan of tech.</p>
+	<p>In the coming days,I will…</p>
+</div>
+
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+    <div class="comment">
+        <div class="ds-thread"
+        {% if site.duoshuo_username == "huxblog" %}
+            data-thread-id="1187623191091085319"
+        {% else %}
+            data-thread-key="{{site.duoshuo_username}}/about"
+        {% endif %}
+
+        data-title="{{page.title}}"
+        data-url="{{site.url}}/about/"></div>
+    </div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
